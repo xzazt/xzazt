@@ -1,0 +1,15 @@
+1.commons-beanutils
+说明：针对Bean的一个工具集。由于Bean往往是有一堆get和set组成，所以BeanUtils也是在此基础上进行一些包装。
+使用示例：功能有很多，网站上有详细介绍。一个比较常用的功能是Bean Copy，也就是copy bean的属性。如果做分层架构开发的话就会用到，比如从PO（Persistent Object）拷贝数据到VO（Value Object）。
+
+2.commons-codec
+说明：这个工具是用来编码和解码的，包括Base64，URL，Soundx等等。
+
+3.commons-connections
+说明：你可以把这个工具看成是java.util的扩展。
+
+4.commons-math3
+说明：看名字你就应该知道这个包是用来干嘛的了吧。这个包提供的功能有些和Commons Lang重复了，但是这个包更专注于做数学工具，功能更强大。
+
+
+

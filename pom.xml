@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>xzazt-common</module>
+        <module>xzazt-web</module>
     </modules>
 
     <!-- maven属性的使用 -->
@@ -26,6 +27,11 @@
         <!-- commons -->
         <commons.lang3.version>3.6</commons.lang3.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
+        <commons.io.version>2.5</commons.io.version>
+        <commons.codec.version>1.10</commons.codec.version>
+        <commons.connections.version>3.2.2</commons.connections.version>
+        <commons.math3.version>3.6.1</commons.math3.version>
+        <commons.fileupload.version>1.3.3</commons.fileupload.version>
     </properties>
 
     <dependencyManagement>
@@ -126,7 +132,37 @@
 			    <artifactId>commons-beanutils</artifactId>
 			    <version>${commons.beanutils.version}</version>
 			</dependency>
-            
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.connections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>${commons.math3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
+
+
+
+
+
+
         </dependencies>
     </dependencyManagement>
 
