@@ -1,0 +1,48 @@
+1.oracle列转行函数
+① Listagg()
+用法：
+listagg(column,separators) within group (ordey by column)
+group by other_column
+例子：
+表：xzazt_db
+ID	TYPE	NAME
+1	db	mysql
+1	db	oracle
+1	db	mysql
+
+查询:
+select 
+t,id,
+t.type,
+listagg(t.name,',') within group(order by t.name) as name
+from 
+xzazt_db t
+group by t,id,t.type
+
+查询结果
+ID	TYPE	NAME
+1	db	mysql,oracle,mysql
+
+可以看到查询的结果将列转行了，数据之间以逗号隔开，但是存在重复数据，不雅观
+可以通过正则表达式去重
+SELECT regexp_replace('2,2,3,4,5 ', '([^,]+)(,\1)+', '\1') AS col  FROM dual 
+查询结果：2,3,4,5
+
+所以：
+select 
+t,id,
+t.type,
+regexp_replace(listagg(t.name,',') within group(order by t.name),'([^,]+)(,\1)+', '\1') as name
+from 
+xzazt_db t
+group by t,id,t.type
+
+查询结果
+ID	TYPE	NAME
+1	db	mysql,oracle
+
+
+②：vm_concat()
+用法：默认以逗号分隔
+vm_concat(column)  group by other)column
+
