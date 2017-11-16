@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+
+    <resultMap id="userMap" type="map">
+        <result column="ID" property="id"/>
+        <result column="USER_NAME" property="userName"/>
+        <result column="LOGIN_NAME" property="loginName"/>
+        <result column="PASSWORD" property="password"/>
+    </resultMap>
+
+    <select id="getUser" resultMap="userMap">
+        select * from XZAZT_USER
+    </select>
+
+
+</mapper>
