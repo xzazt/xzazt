@@ -1,4 +1,4 @@
 <%
 String path = request.getContextPath();
-response.sendRedirect(path + "/user/getUser");
+response.sendRedirect(path + "/user/getUser2");
 %>
