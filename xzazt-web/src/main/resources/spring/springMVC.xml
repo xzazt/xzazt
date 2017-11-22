@@ -20,7 +20,7 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/"/>
+            <mvc:mapping path="/**"/>
             <bean class="com.xzazt.controller.InterceptController"/>
         </mvc:interceptor>
     </mvc:interceptors>

@@ -23,10 +23,7 @@ public class UserController {
     @RequestMapping(value = "/getUser")
     @ResponseBody
     public String getUser(HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods","POST");
-        response.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
-        List<Map<String, Object>> user = userService.getUser();
+      List<Map<String, Object>> user = userService.getUser();
         String s = JSON.toJSONString(user);
         return s;
     }
