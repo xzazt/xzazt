@@ -19,5 +19,10 @@ public class UserDao {
         return list;
     }
 
+    public int getLogin(Map<String,Object> params){
+        int count = mybatisDao.count("userMapper.getLogin", params);
+        return count;
+    }
+
 
 }

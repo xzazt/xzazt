@@ -16,6 +16,10 @@
 
     <!-- maven属性的使用 -->
     <properties>
+        <encoding>UTF-8</encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.12</junit.version>
         <spring.version>4.3.11.RELEASE</spring.version>
@@ -46,11 +50,12 @@
         <logback.version>1.2.3</logback.version>
 
         <jstl.version>1.2</jstl.version>
+        <!--shiro-->
+        <shiro.version>1.4.0</shiro.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
             <!--log4j-->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -244,6 +249,24 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+
 
 
 

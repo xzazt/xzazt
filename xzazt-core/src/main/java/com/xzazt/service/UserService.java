@@ -6,4 +6,6 @@ import java.util.Map;
 public interface UserService {
 
     List<Map<String, Object>> getUser();
+
+    int checkUser(Map<String,Object> params);
 }

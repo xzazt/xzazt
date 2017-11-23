@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 默认的登陆访问url -->
+        <property name="loginUrl" value="/login.do"/>
+        <!-- 没有权限时跳转的url -->
+        <property name="unauthorizedUrl" value="/unauth.do"/>
+        <!-- 登陆成功跳转的url，如果不进行配置则访问上次访问的请求，建议不配置
+        <property name="successUrl" value="/index.do"></property>
+        -->
+        <!-- 请求过滤链，具体规则再最后以注释的方法说明 -->
+       <!-- <property name="filterChainDefinitions">
+            <value>
+                /** = authc &lt;!&ndash; 需要认证 &ndash;&gt;
+            </value>
+        </property>-->
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="loginRealm"/>
+    </bean>
+
+    <bean id="loginRealm" class="com.xzazt.loginRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="userService" ref="userServiceImpl"></property>
+    </bean>
+
+    <bean id="userServiceImpl" class="com.xzazt.service.impl.UserServiceImpl"></bean>
+
+    <!-- 凭证匹配器 -->
+    <bean id="credentialsMatcher"
+          class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/>
+        <property name="storedCredentialsHexEncoded" value="true"/>
+    </bean>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+
+
+    <!-- 开启Shiro注解 -->
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+
+</beans>

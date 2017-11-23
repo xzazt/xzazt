@@ -21,4 +21,10 @@ public class MybatisDao {
         List<Map<String,Object>> list = sqlSession.selectList(key);
         return list;
     }
+
+    public int count(String key,Object object){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        Integer o = (Integer)sqlSession.selectOne(key,object);
+        return o;
+    }
 }

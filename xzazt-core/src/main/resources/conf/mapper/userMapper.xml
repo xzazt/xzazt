@@ -13,5 +13,9 @@
         select * from XZAZT_USER
     </select>
 
+    <select id="getLogin" resultType="int" parameterType="map">
+        select * from XZAZT_USER t where t.LOGIN_NAME = #{username} and t.PASSWORD = #{password}
+    </select>
+
 
 </mapper>

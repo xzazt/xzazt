@@ -18,4 +18,8 @@ public class UserServiceImpl implements UserService {
     public List<Map<String, Object>> getUser() {
         return userDao.getUser();
     }
+
+    public int checkUser(Map<String, Object> params) {
+        return userDao.getLogin(params);
+    }
 }

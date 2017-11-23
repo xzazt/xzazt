@@ -12,9 +12,9 @@ public class InterceptController extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         UserSession userSession = (UserSession) request.getSession().getAttribute("userSession");
-        if(userSession == null){
+        /*if(userSession == null){
             return false;
-        }
+        }*/
         return true;
     }
 
